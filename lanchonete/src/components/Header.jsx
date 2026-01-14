@@ -1,11 +1,11 @@
-
+import image from '../assets/images/image.png';
 function Header() {
     return(
 <nav className="navbar bg-gray-700">
         <div className="flex justify-between w-full p-4 items-center">
             
             <div className="flex items-center gap-2">
-                <img src="caminho/para/logo.png" alt="IMAGEM"/>
+                <img src={image} alt="logo-beicinho"/>
                 <span className="text-white text-2xl">Beicinho Lanches</span>
             </div>
             
@@ -13,7 +13,7 @@ function Header() {
                 <input 
                     type="search" 
                     placeholder="Digite aqui..."
-                    class="
+                    className="
                         w-full
                         px-4 py-2
                         text-gray-700
