@@ -6,6 +6,7 @@
 
 ### Para desenvolvimento
 ```bash
+docker-compose --profile dev build
 docker-compose --profile dev up -d
 ```
 
@@ -13,3 +14,13 @@ docker-compose --profile dev up -d
 
 - RUN chown -R node:node /app
 - USER node
+
+# Coisas para estudar:
+
+- Tailwind CSS
+- React
+- Docker
+
+# Instalar:
+
+- Tailwind CSS IntelliSense (extensão do vscode)
