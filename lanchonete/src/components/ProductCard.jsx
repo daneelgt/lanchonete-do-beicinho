@@ -1,10 +1,9 @@
 import { useCart } from "../context/CartContext.jsx";
 import ProductQuantityButton from "./QuantityButton.jsx";
-import { useState } from "react";
 
 function ProductCard({ product }) {
 
-  const { addItem } = useCart();
+  const { addItem} = useCart();
 
   return (
     <div className="card py-3 bg-amber-800">
@@ -28,11 +27,7 @@ function ProductCard({ product }) {
         </button>
         <div className="flex items-center">
           <span className="text-black">Quantidade:</span>
-          <div className="flex max-w-2xl" role="group" aria-label="Basic example">
-            <button type="button" className="btn btn-secondary text-black w-1 " onClick={() => { value > 1 ? setValue(value - 1) : setValue(1) }}>-</button>
-            <input type="reset" value={value} className="btn btn-secondary text-black" />
-            <button type="button" className="btn btn-secondary text-black w-1" onClick={() => { setValue(value + 1) }}>+</button>
-          </div>
+          <ProductQuantityButton item={product}/>
         </div>
       </div>
 

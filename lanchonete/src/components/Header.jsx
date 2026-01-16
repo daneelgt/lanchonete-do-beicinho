@@ -19,7 +19,7 @@ function Header() {
                         pl-3
                         text-gray-700
                         bg-white
-                        border-gray-400
+                        border-gray-400 
                         focus:outline-none
                     "></input>
                     <button className="border-purple-200 bg-blue-600  px-3 py-1 hover:bg-blue-500 text-white" type="submit">Buscar</button>
