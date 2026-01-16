@@ -30,7 +30,7 @@ export default function ModalCart() {
                 <ul role="list" class="-my-6 divide-y divide-gray-200">
                   {items.length === 0 && <p className="text-center text-gray-500 p-4">Carrinho vazio.</p>}
                   {items.map((item, index) => (           
-                         <li key={index} class="flex py-6">
+                        <li key={index} class="flex py-6">
                                 <div class="size-24 shrink-0 overflow-hidden rounded-md border border-gray-200">
                                 <img src={item.image} class="size-full object-cover" />
                                 </div>
@@ -52,7 +52,7 @@ export default function ModalCart() {
                                         </div>
                                     </div>
                                     </div>
-                         </li>
+                        </li>
                       ))}   
                   
                 
@@ -111,7 +111,7 @@ export default function ModalCart() {
 
 //     return(
 //           <div className="p-4 bg-white rounded-lg shadow-md">
-           
+
 //                   <h2 className="text-xl font-bold mb-4">Carrinho de Compras</h2>
 //                       {items.map((item, index) => (
 //                         <div key={index} className="flex justify-between items-center mb-2">
@@ -133,7 +133,7 @@ export default function ModalCart() {
 //                         Limpar Carrinho
 //                       </button>
 //                   </div>
-                  
+
 //           </div>
 //     )
 // };

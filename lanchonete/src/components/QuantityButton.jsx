@@ -1,7 +1,7 @@
 import { useCart } from "../context/CartContext";
 
 export default function ProductQuantityButton({ item }) {
-     const { updateQuantity } = useCart();
+  const { updateQuantity } = useCart();
 
   const handleQuantityChange = (e) => {
     const newQuantity = parseInt(e.target.value);
