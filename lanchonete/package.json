@@ -11,6 +11,8 @@
     "start": "react-scripts start"
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.9",
+    "@heroicons/react": "^2.2.0",
     "@tailwindcss/vite": "^4.1.18",
     "bootswatch": "^5.3.8",
     "react": "^19.2.0",
