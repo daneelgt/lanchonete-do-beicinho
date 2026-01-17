@@ -1,6 +1,7 @@
 // src/components/ProductCard.jsx
 import { useCart } from "../context/CartContext.jsx";
 import { useState } from "react";
+import { MoneyFormatter } from "../utils/MoneyFormatter.jsx";
 import QuantityModal from "./QuantityModal.jsx";
 
 function ProductCard({ product }) {
@@ -26,11 +27,11 @@ function ProductCard({ product }) {
           <h5 className="card-title text-black">{product.name}</h5>
           <p className="card-text text-cyan-900">{product.description}</p>
         </div>
-        <div className="card-body">
-          <p className="text-2xl text-blue-800">
-            <span className="text-black mr-2">R$:</span>
-            {product.price.toFixed(2).toString().replace(".", ",")}
-          </p>
+        <div className="card-body flex gap-1">
+          <p className="text-2xl text-black">R$:</p>
+          <span className="text-2xl text-orange-700">
+            <MoneyFormatter amount={product.price}></MoneyFormatter>
+          </span>
         </div>
 
         <div className="card-body">

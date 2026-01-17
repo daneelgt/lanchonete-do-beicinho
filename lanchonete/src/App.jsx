@@ -1,25 +1,24 @@
-import './App.css';
-import 'bootswatch/dist/quartz/bootstrap.min.css';
-import Header from './components/Header.jsx';
-import Cards from './components/Cards.jsx';
-import { CartProvider } from './context/CartContext.jsx';
-import Cart from './components/Cart.jsx';
-import ProductCardModal from './components/QuantityModal.jsx';
-import ModalComponent from './components/Modal.jsx';
+import "./App.css";
+import "bootswatch/dist/quartz/bootstrap.min.css";
+import Header from "./components/Header.jsx";
+import Cards from "./components/Cards.jsx";
+import { CartProvider } from "./context/CartContext.jsx";
+import Cart from "./components/Cart.jsx";
+import ProductCardModal from "./components/QuantityModal.jsx";
+import ModalComponent from "./components/Modal.jsx";
 
 function App() {
-
   return (
-    <CartProvider> 
+    <CartProvider>
       <div>
-          <Header/>
-          <Cards/>
-          <Cart/>
-          <ProductCardModal/>
-          <ModalComponent/>
-          </div>
+        <Header />
+        <Cards />
+        <Cart />
+        <ProductCardModal />
+        <ModalComponent />
+      </div>
     </CartProvider>
-  )
+  );
 }
 
 export default App;
@@ -36,7 +35,7 @@ export default App;
 //       <Cards/>
 //     </div>
 //   )
-  
+
 // }
 
 // export default App
