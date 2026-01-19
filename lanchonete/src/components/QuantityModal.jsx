@@ -4,7 +4,7 @@ import ProductQuantityButton from "./QuantityButton.jsx";
 
 export default function QuantityModal({ isOpen, onClose, onConfirm, product }) {
   const [selectedQuantity, setSelectedQuantity] = useState(1);
-
+  
   // APRENDER A COLOCAR O UPDATEQUANTITY NESSA PORRA
 
   if (!isOpen) return null;
@@ -28,6 +28,7 @@ export default function QuantityModal({ isOpen, onClose, onConfirm, product }) {
             R$:
             <MoneyFormatter
               amount={product.price * selectedQuantity}
+
             ></MoneyFormatter>
           </div>
           
@@ -36,7 +37,7 @@ export default function QuantityModal({ isOpen, onClose, onConfirm, product }) {
               sizeBtn="small"
               sizeInput="small"
               product={product}
-              initialQuantity={product.quantity || 1}
+              quantity={product.quantity || 1}
               onQuantityChange={(quantity) => {
                 setSelectedQuantity(quantity);
               }}
