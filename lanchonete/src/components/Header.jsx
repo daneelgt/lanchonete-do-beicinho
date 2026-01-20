@@ -2,29 +2,36 @@ import { useCart } from "../context/CartContext.jsx";
 function Header() {
     const { getTotalItems } = useCart();
     return (
-        <nav className="navbar bg-gray-700">
+        <nav className="navbar bg-amber-500">
             <div className="flex justify-between w-full p-2 items-center">
 
-                <div className="flex items-center gap-2">
-                    <img src="/assets/images/image.png" alt="logo-beicinho" className="w-20" />
+                {/* Logo.icon*/}
+                <div className="flex items-center gap-2 ">
+                    <img src="/assets/images/image.png" alt="logo-beicinho" className="h-30" />
                     <span className="text-white text-2xl"></span>
                 </div>
 
-                <div className="flex justify-between w-125 overflow-hidden rounded-lg">
-                    <input
-                        type="search"
-                        placeholder="Digite aqui..."
-                        className="
-                        w-full
-                        pl-3
-                        text-gray-700
-                        bg-white
-                        border-gray-400 
-                        focus:outline-none
-                    "></input>
-                    <button className="border-purple-200 bg-blue-600  px-3 py-1 hover:bg-blue-500 text-white" type="submit">Buscar</button>
+                {/* Pesquisar */}
+                <div class="w-full max-w-sm">
+                    <div class="relative mt-2">
+                        <div class="absolute top-1 left-1 flex items-center">
+                            <div id="dropdownMenu" class=" overflow-hidden absolute left-0 mt-10 hidden w-full bg-white border border-slate-200 rounded-md shadow-lg z-10">
+                            </div>
+                        </div>
+                        <input
+                            type="text"
+                            class="w-full bg-white text-gray-500 rounded-4xl pr-12 pl-5 py-1 transition duration-300 ease focus:outline-none shadow-sm focus:shadow"
+                            placeholder="Pesquisar..." 
+                            />
+                        <button class="absolute right-1 top-1 rounded p-1.5 text-center text-sm transition-all " type="button">
+                            <svg xmlns="x" viewBox="0 0 16 16" class="w-13 h-5">
+                                <path fill-rule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clip-rule="evenodd"></path>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
 
+                {/* Sobre e Fale Conosco */}
                 <div className="flex gap-3">
                     <a href="#sobre" className="text-decoration-none">Sobre</a>
                     <a href="#fale-conosco" className="text-decoration-none">Fale Conosco</a>
