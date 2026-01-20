@@ -64,7 +64,7 @@ function ProductQuantityButton({
       <button
         onClick={() => handleQuantityChange(localQuantity - 1)}
         type="button"
-        className={`flex-1 font-bold flex justify-center items-center ${buttonSizeClasses[sizeBtn]}`}
+        className={`flex-1 bg-gray-100 hover:bg-white font-bold flex justify-center items-center ${buttonSizeClasses[sizeBtn]}`}
         disabled={localQuantity <= 1}
       >
         <svg
@@ -96,7 +96,7 @@ function ProductQuantityButton({
       <button
         onClick={() => handleQuantityChange(localQuantity + 1)}
         type="button"
-        className={`flex-1 font-bold flex justify-center items-center ${buttonSizeClasses[sizeBtn]}`}
+        className={`flex-1 font-bold bg-gray-100 hover:bg-white flex justify-center items-center ${buttonSizeClasses[sizeBtn]}`}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

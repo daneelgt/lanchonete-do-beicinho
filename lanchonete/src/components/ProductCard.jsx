@@ -16,9 +16,9 @@ function ProductCard({ product }) {
   return (
     <>
       <div className="card py-3 bg-amber-800">
-        <div className="border-y-2 border-gray-400">
+        <div className="border-y-2 border-gray-200 max-h-135">
           <img
-            className="size-full object-cover"
+            className="size-full object-contain "
             src={product.image}
             alt={product.name}
           />
@@ -34,10 +34,10 @@ function ProductCard({ product }) {
           </span>
         </div>
 
-        <div className="card-body">
+        <div className="card-body flex justify-center">
           <button
             onClick={() => setIsModalOpen(true)}
-            className="w-full bg-neutral-500/60 text-white py-2 rounded hover:bg-neutral-500/50"
+            className="w-2/3 bg-neutral-500/60 text-white py-2 rounded hover:bg-neutral-500/50"
           >
             Adicionar ao Carrinho
           </button>

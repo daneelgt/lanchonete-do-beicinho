@@ -89,7 +89,7 @@ export default function ModalCart() {
                                   </div>
                                 </div>
                               </div>
-                              <div className="flex flex-1 items-baseline justify-between text-sm">
+                              <div className="flex flex-1 items-baseline-last justify-between text-sm">
                                 <ProductQuantityButton
                                   size="small"
                                   sizeBtn="small"
