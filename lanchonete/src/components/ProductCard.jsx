@@ -37,7 +37,7 @@ function ProductCard({ product }) {
         <div className="card-body">
           <button
             onClick={() => setIsModalOpen(true)}
-            className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700"
+            className="w-full bg-neutral-500/60 text-white py-2 rounded hover:bg-neutral-500/50"
           >
             Adicionar ao Carrinho
           </button>

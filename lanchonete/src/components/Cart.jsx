@@ -95,7 +95,7 @@ export default function ModalCart() {
                                   sizeBtn="small"
                                   sizeInput="small"
                                   product={item}
-                                  initialQuantity={item.quantity || 1}
+                                  quantity={item.quantity || 1}
                                 ></ProductQuantityButton>
 
                                 <div className="flex">
