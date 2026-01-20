@@ -1,5 +1,5 @@
 import "./App.css";
-import "bootswatch/dist/quartz/bootstrap.min.css";
+import "bootswatch/dist/litera/bootstrap.css";
 import Header from "./components/Header.jsx";
 import Cards from "./components/Cards.jsx";
 import { CartProvider } from "./context/CartContext.jsx";

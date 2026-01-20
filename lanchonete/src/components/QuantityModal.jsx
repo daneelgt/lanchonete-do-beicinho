@@ -24,7 +24,7 @@ export default function QuantityModal({ isOpen, onClose, onConfirm, product }) {
         </div>
 
         <div className=" flex items-center justify-between bg-gray-100 rounded-2xl h-16 px-2">
-          <div className="text-xl font-medium text-gray-700 flex-1 text-green-800">
+          <div className="text-xl font-medium flex-1 text-green-800">
             R$:
             <MoneyFormatter
               amount={product.price * selectedQuantity}
