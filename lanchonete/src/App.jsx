@@ -6,6 +6,7 @@ import { CartProvider } from "./context/CartContext.jsx";
 import Cart from "./components/Cart.jsx";
 import ProductCardModal from "./components/QuantityModal.jsx";
 import ModalComponent from "./components/Modal.jsx";
+import Footer from "./components/Footer.jsx";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <ProductCardModal />
         <ModalComponent />
       </div>
+      <Footer />
     </CartProvider>
   );
 }
