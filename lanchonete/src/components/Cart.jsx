@@ -33,21 +33,20 @@ export default function ModalCart() {
                         type="button"
                         command="close"
                         commandfor="drawer"
-                        className="relative -m-4 p-1 text-gray-400 hover:text-gray-500"
+                        className="flex items-center justify-center p-2 size-10 text-gray-600 border border-gray-300 rounded hover:bg-gray-50"
                       >
                         <svg
-                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
                           fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth={1.5}
                           stroke="currentColor"
-                          stroke-width="1.5"
-                          data-slot="icon"
-                          aria-hidden="true"
                           className="size-6"
                         >
                           <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                             d="M6 18 18 6M6 6l12 12"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
                           />
                         </svg>
                       </button>
@@ -58,7 +57,7 @@ export default function ModalCart() {
                     <div className="flow-root">
                       <ul
                         role="list"
-                        className="-my-6 divide-y divide-gray-200"
+                        className="flex flex-col gap-2 -my-6 divide-y divide-gray-200"
                       >
                         {items.length === 0 && (
                           <p className="text-center text-gray-500 p-4">
@@ -66,7 +65,10 @@ export default function ModalCart() {
                           </p>
                         )}
                         {items.map((item, index) => (
-                          <li key={index} className="flex py-6">
+                          <li
+                            key={index}
+                            className="flex py-6 bg-gray-100 shadow-md px-3 w-full"
+                          >
                             <div className="size-24 shrink-0 overflow-hidden rounded-md border border-gray-200">
                               <img
                                 src={item.image}
@@ -119,26 +121,42 @@ export default function ModalCart() {
                 </div>
 
                 <div class="flex flex-col gap-3 border-t border-gray-200 px-4 py-6 sm:px-6">
-                  <div class="flex items-center justify-between">
-                    <p className="text-2xl mb-0">Total</p>
+                  <div class="flex flex-col gap-2">
+                    <div className="flex justify-between items-center">
+                      <p>Subtotal</p>
+                      <div className="flex gap-1 items-center">
+                        <span className="text-gray-400 text-2xl">R$:</span>
+                        <span className="text-2xl text-orange-400">
+                          {<MoneyFormatter amount={getTotal()} />}
+                        </span>
+                      </div>
+                    </div>
 
-                    <div className="flex gap-1 items-center">
-                      <span className="text-gray-400 text-2xl">R$:</span>
-                      <span className="text-2xl text-orange-400">
-                        {<MoneyFormatter amount={getTotal()} />}
-                      </span>
+                    <div className="flex justify-between items-center">
+                      <p>Descontos</p>
+                      <span>R$ 0,00</span>
+                    </div>
+
+                    <div className="flex justify-between items-center">
+                      <p>Total</p>
+                      <div className="flex gap-1 items-center">
+                        <span className="text-gray-400 text-2xl">R$:</span>
+                        <span className="text-2xl text-orange-400">
+                          {<MoneyFormatter amount={getTotal()} />}
+                        </span>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="">
+                  <div className="flex justify-center">
                     <a
                       href="#"
-                      class="flex items-center justify-center rounded-md bg-amber-400 py-2 text-decoration-none text-white shadow-sm hover:bg-amber-300"
+                      class="flex items-center justify-center w-2/3 py-2 text-decoration-none text-white shadow-sm bg-neutral-500/60 rounded hover:bg-neutral-500/50"
                     >
                       Comprar
                     </a>
                   </div>
-                  <div class="flex justify-center text-center text-sm text-gray-500">
+                  {/* <div class="flex justify-center text-center text-sm text-gray-500">
                     <p className="flex gap-1">
                       Ou
                       <button
@@ -151,7 +169,7 @@ export default function ModalCart() {
                         <span aria-hidden="true"> &rarr;</span>
                       </button>
                     </p>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </el-dialog-panel>
