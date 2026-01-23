@@ -1,11 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MoneyFormatter } from "../utils/MoneyFormatter.jsx";
 import ProductQuantityButton from "./QuantityButton.jsx";
 
 export default function QuantityModal({ isOpen, onClose, onConfirm, product }) {
   const [selectedQuantity, setSelectedQuantity] = useState(1);
 
-  // APRENDER A COLOCAR O UPDATEQUANTITY NESSA PORRA
+  useEffect(() => {
+    if (isOpen) {
+      setSelectedQuantity(1);
+    }
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
@@ -55,6 +59,7 @@ export default function QuantityModal({ isOpen, onClose, onConfirm, product }) {
           </div>
 
           <ProductQuantityButton
+            key={`product-${product.id}`}
             size="small"
             sizeBtn="small"
             sizeInput="small"
@@ -67,12 +72,6 @@ export default function QuantityModal({ isOpen, onClose, onConfirm, product }) {
         </div>
 
         <div className="flex justify-end gap-2">
-          {/* <button
-            onClick={onClose}
-            className="px-4 py-2 text-gray-600 border border-gray-300 rounded hover:bg-gray-50"
-          >
-            Cancelar
-          </button> */}
           <button
             onClick={() => onConfirm(product, selectedQuantity)}
             className="px-4 py-2 rounded bg-blue-600 text-white  hover:bg-blue-700"

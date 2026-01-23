@@ -36,8 +36,8 @@ function ProductQuantityButton({
 
   // Sincroniza estado local quando propQuantity mudar externamente
   React.useEffect(() => {
-    setLocalQuantity(propQuantity);
-  }, [propQuantity]);
+    setLocalQuantity(propQuantity || 1);
+  }, [propQuantity, product.id]);
 
   const sizeClasses = {
     small: "w-24 h-8",

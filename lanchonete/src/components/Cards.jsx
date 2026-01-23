@@ -131,7 +131,7 @@ function Cards() {
 
       <div className="tab-content bg-gray-200 p-4 rounded-md">
         <div className="tab-pane fade active show" id="lanches">
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
             {lanches.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
@@ -139,7 +139,7 @@ function Cards() {
         </div>
 
         <div className="tab-pane fade" id="bebidas">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-3 gap-4">
             {bebidas.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
