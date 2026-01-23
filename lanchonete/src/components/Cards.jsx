@@ -96,10 +96,10 @@ function Cards() {
   ]
   return (
     <div className="container mt-5 p-4">
-      <ul className="nav nav-tabs ml-2" role="tablist">
+      <ul className="nav nav-tabs ml-" role="tablist">
         <li className="nav-item">
           <button
-            className="nav-link active"
+            className="nav-link active text-black"
             data-bs-toggle="tab"
             data-bs-target="#lanches"
             type="button"
@@ -109,7 +109,7 @@ function Cards() {
         </li>
         <li className="nav-item">
           <button
-            className="nav-link "
+            className="nav-link text-black"
             data-bs-toggle="tab"
             data-bs-target="#bebidas"
             type="button"
@@ -119,7 +119,7 @@ function Cards() {
         </li>
         <li className="nav-item">
           <button
-            className="nav-link "
+            className="nav-link text-black "
             data-bs-toggle="tab"
             data-bs-target="#sobremesa"
             type="button"

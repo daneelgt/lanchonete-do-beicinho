@@ -57,7 +57,7 @@ export default function ModalCart() {
                     <div className="flow-root">
                       <ul
                         role="list"
-                        className="flex flex-col gap-2 -my-6 divide-y divide-gray-200"
+                        className="flex flex-col items-center gap-4 my-6 p-4 divide-y divide-gray-200"
                       >
                         {items.length === 0 && (
                           <p className="text-center text-gray-500 p-4">
