@@ -1,12 +1,10 @@
 import "./App.css";
 import "bootswatch/dist/litera/bootstrap.css";
-import Header from "./components/Header.jsx";
-import Cards from "./components/Cards.jsx";
-import { CartProvider } from "./context/CartContext.jsx";
-import Cart from "./contexts/components/Cart.jsx";
-import ProductCardModal from "./components/QuantityModal.jsx";
-import ModalComponent from "./components/Modal.jsx";
-import Footer from "./components/Footer.jsx";
+import Header from "./components/common/Header.jsx";
+import Cards from "./components/common/Cards.jsx";
+import { CartProvider } from "./app/shopping-cart/components/CartContext.jsx";
+import Cart from "./app/shopping-cart/Cart.jsx";
+import Footer from "./components/common/Footer.jsx";
 
 function App() {
   return (
@@ -15,8 +13,6 @@ function App() {
         <Header />
         <Cards />
         <Cart />
-        <ProductCardModal />
-        <ModalComponent />
       </div>
       <Footer />
     </CartProvider>

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { MoneyFormatter } from "../../utils/MoneyFormatter.jsx";
 import ProductQuantityButton from "../../utils/QuantityButton.jsx";
 
-export default function QuantityModal({ isOpen, onClose, onConfirm, product }) {
+export default function ProductModal({ isOpen, onClose, onConfirm, product }) {
   const [selectedQuantity, setSelectedQuantity] = useState(1);
 
   useEffect(() => {

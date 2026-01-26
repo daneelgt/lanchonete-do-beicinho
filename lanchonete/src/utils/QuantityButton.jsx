@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 import React, { memo } from "react";
-import { useCart } from "../contexts/components/CartContext";
+import { useCart } from "../app/shopping-cart/components/CartContext.jsx";
 
 function ProductQuantityButton({
   product,

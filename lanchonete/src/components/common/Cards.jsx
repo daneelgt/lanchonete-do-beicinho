@@ -1,4 +1,3 @@
-import "../App.css";
 import ProductCard from "./ProductCard.jsx";
 
 function Cards() {
@@ -135,7 +134,7 @@ function Cards() {
         <div className="tab-pane fade active show" id="lanches">
           <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
             {lanches.map((product) => (
-              <ProductCard key={product.id} product={product} />
+              <ProductCard key={product.id} item={product} />
             ))}
           </div>
         </div>
@@ -143,7 +142,7 @@ function Cards() {
         <div className="tab-pane fade" id="bebidas">
           <div className="grid grid-cols-3 gap-4">
             {bebidas.map((product) => (
-              <ProductCard key={product.id} product={product} />
+              <ProductCard key={product.id} item={product} />
             ))}
           </div>
         </div>
@@ -151,7 +150,7 @@ function Cards() {
         <div className="tab-pane fade" id="sobremesa">
           <div className="grid grid-cols-2 gap-4">
             {sobremesas.map((product) => (
-              <ProductCard key={product.id} product={product} />
+              <ProductCard key={product.id} item={product} />
             ))}
           </div>
         </div>

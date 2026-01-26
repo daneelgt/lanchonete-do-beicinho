@@ -1,15 +1,15 @@
 // src/components/ProductCard.jsx
-import { useCart } from "../context/CartContext.jsx";
+import { useCart } from "../../app/shopping-cart/components/CartContext.jsx";
 import { useState } from "react";
 import { MoneyFormatter } from "../../utils/MoneyFormatter.jsx";
-import QuantityModal from "./QuantityModal.jsx";
+import ProductModal from "../../app/shopping-cart/ProductModal.jsx";
 
-function ProductCard({ product }) {
+function ProductCard({ item }) {
   const { addItem } = useCart();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleAddToCart = (product, quantity) => {
-    addItem({ ...product, quantity });
+  const handleAddToCart = (item, quantity) => {
+    addItem({ ...item, quantity });
     setIsModalOpen(false);
   };
 
@@ -19,18 +19,18 @@ function ProductCard({ product }) {
         <div className="border-y-2 border-gray-200 max-h-135">
           <img
             className="size-full object-contain "
-            src={product.image}
-            alt={product.name}
+            src={item.image}
+            alt={item.name}
           />
         </div>
         <div className="card-body">
-          <h5 className="card-title text-black">{product.name}</h5>
-          <p className="card-text text-cyan-900">{product.description}</p>
+          <h5 className="card-title text-black">{item.name}</h5>
+          <p className="card-text text-cyan-900">{item.description}</p>
         </div>
         <div className="card-body flex gap-1">
           <p className="text-2xl text-black">R$:</p>
           <span className="text-2xl text-orange-700">
-            <MoneyFormatter amount={product.price}></MoneyFormatter>
+            <MoneyFormatter amount={item.price}></MoneyFormatter>
           </span>
         </div>
 
@@ -44,11 +44,11 @@ function ProductCard({ product }) {
         </div>
       </div>
 
-      <QuantityModal
+      <ProductModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         onConfirm={handleAddToCart}
-        product={product}
+        product={item}
       />
     </>
   );
