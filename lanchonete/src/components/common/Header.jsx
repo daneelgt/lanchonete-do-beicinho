@@ -1,6 +1,6 @@
-import { useCart } from "../context/CartContext.jsx";
-import { MoneyFormatter } from "../utils/MoneyFormatter.jsx";
-import ModalCart from "./Cart.jsx";
+import { useCart } from "../../app/shopping-cart/components/CartContext.jsx";
+import { MoneyFormatter } from "../../utils/MoneyFormatter.jsx";
+import ModalCart from "../../app/shopping-cart/Cart.jsx";
 import { useState } from "react";
 
 function Header() {

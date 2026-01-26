@@ -1,6 +1,6 @@
-import { useCart } from "../context/CartContext.jsx";
-import ProductQuantityButton from "./QuantityButton.jsx";
-import { MoneyFormatter } from "../utils/MoneyFormatter.jsx";
+import { useCart } from "./components/CartContext.jsx";
+import ProductQuantityButton from "../../utils/QuantityButton.jsx";
+import { MoneyFormatter } from "../../utils/MoneyFormatter.jsx";
 export default function ModalCart({ isOpen, onClose }) {
   const { items, removeItem, getTotal } = useCart();
 
@@ -9,10 +9,13 @@ export default function ModalCart({ isOpen, onClose }) {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center ">
       <div
-        tabindex="0"
+        tabIndex="0"
         className="absolute inset-0 pl-10 focus:outline-none sm:pl-16"
       >
-        <el-dialog-panel className="ml-auto block size-full max-w-md transform transition duration-500 ease-in-out data-closed:translate-x-full sm:duration-700">
+        <dialog
+          open
+          className="ml-auto block size-full max-w-md transform transition duration-500 ease-in-out data-closed:translate-x-full sm:duration-700"
+        >
           <div className="flex h-full flex-col overflow-y-auto bg-white shadow-xl">
             <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
               <div className="flex justify-between items-center">
@@ -25,7 +28,7 @@ export default function ModalCart({ isOpen, onClose }) {
                 <div className="ml-3 flex h-7 items-center">
                   <button
                     onClick={onClose}
-                    commandfor="drawer"
+                    type="button"
                     className="flex items-center justify-center p-2 size-10 text-gray-600 border border-gray-300 rounded hover:bg-gray-50"
                   >
                     <svg
@@ -71,9 +74,9 @@ export default function ModalCart({ isOpen, onClose }) {
                         <div className="ml-4 flex flex-1 flex-col">
                           <div>
                             <div className="flex justify-between text-base font-medium text-gray-900">
-                              <h3>
+                              <div>
                                 <h5 href="#">{item.name}</h5>
-                              </h3>
+                              </div>
                               <div className="flex gap-1">
                                 <p>R$:</p>
                                 <span>
@@ -151,7 +154,7 @@ export default function ModalCart({ isOpen, onClose }) {
               </div>
             </div>
           </div>
-        </el-dialog-panel>
+        </dialog>
       </div>
     </div>
   );

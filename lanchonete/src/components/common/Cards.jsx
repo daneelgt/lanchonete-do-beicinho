@@ -84,16 +84,18 @@ function Cards() {
       name: "Sorvete",
       description: "Sorvete de creme 500ml",
       price: 12.9,
-      image: "https://static.itdg.com.br/images/360-240/4538e714d854189b601b1b2db9114927/sorvete.jpg?w=600&h=400"
+      image:
+        "https://static.itdg.com.br/images/360-240/4538e714d854189b601b1b2db9114927/sorvete.jpg?w=600&h=400",
     },
     {
       id: 9,
       name: "Pudim",
       description: "Pudim de leite 200g",
       price: 8.9,
-      image: "https://i0.wp.com/blog.duogourmet.com.br/wp-content/uploads/2020/04/pudding-1107_1280-scaled-1.jpg?fit=1200%2C900&ssl=1"
-    }
-  ]
+      image:
+        "https://i0.wp.com/blog.duogourmet.com.br/wp-content/uploads/2020/04/pudding-1107_1280-scaled-1.jpg?fit=1200%2C900&ssl=1",
+    },
+  ];
   return (
     <div className="container mt-5 p-4">
       <ul className="nav nav-tabs ml-" role="tablist">

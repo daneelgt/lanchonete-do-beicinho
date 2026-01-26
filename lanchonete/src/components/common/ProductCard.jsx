@@ -1,7 +1,7 @@
 // src/components/ProductCard.jsx
 import { useCart } from "../context/CartContext.jsx";
 import { useState } from "react";
-import { MoneyFormatter } from "../utils/MoneyFormatter.jsx";
+import { MoneyFormatter } from "../../utils/MoneyFormatter.jsx";
 import QuantityModal from "./QuantityModal.jsx";
 
 function ProductCard({ product }) {
