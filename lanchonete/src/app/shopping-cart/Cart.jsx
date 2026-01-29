@@ -1,7 +1,7 @@
 import { useCart } from "./components/CartContext.jsx";
 import ProductQuantityButton from "../../utils/QuantityButton.jsx";
 import { MoneyFormatter } from "../../utils/MoneyFormatter.jsx";
-export default function ModalCart({ isOpen, onClose }) {
+export default function ModalCart({ isOpen, onClose}) {
   const { items, removeItem, getTotal } = useCart();
 
   if (!isOpen) return null;

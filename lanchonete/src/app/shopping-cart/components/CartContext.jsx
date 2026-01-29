@@ -1,58 +1,59 @@
-  import { createContext, useState, useContext } from 'react';
+import { createContext, useState, useContext } from "react";
 
-  const CartContext = createContext();
+const CartContext = createContext();
 
-  export function CartProvider({ children }) {
-    const [items, setItems] = useState([]);
-    const [isOpen, setIsOpen] = useState(false);
+export function CartProvider({ children }) {
+  const [items, setItems] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
 
   const addItem = (product) => {
-    setItems(currentItems => {
-      const existingItem = currentItems.find(item => item.id === product.id);
+    setItems((currentItems) => {
+      const existingItem = currentItems.find((item) => item.id === product.id);
       if (existingItem) {
-        return currentItems.map(item =>
+        return currentItems.map((item) =>
           item.id === product.id
             ? { ...item, quantity: item.quantity + product.quantity }
-            : item
+            : item,
         );
       }
       return [...currentItems, product];
     });
   };
 
-    const removeItem = (productId) => {
-      setItems(currentItems => 
-        currentItems.filter(item => item.id !== productId)
-      );
-    };
+  const removeItem = (productId) => {
+    setItems((currentItems) =>
+      currentItems.filter((item) => item.id !== productId),
+    );
+  };
 
-    const updateQuantity = (productId, quantity) => {
-      if (quantity < 1) return;
-      setItems(currentItems =>
-        currentItems.map(item =>
-          item.id === productId
-            ? { ...item, quantity }
-            : item
-        )
-      );
-    };
+  const updateQuantity = (productId, quantity) => {
+    if (quantity < 1) return;
+    setItems((currentItems) =>
+      currentItems.map((item) =>
+        item.id === productId ? { ...item, quantity } : item,
+      ),
+    );
+  };
 
-    const getTotal = () => {
-      return items.reduce((total, item) => total + item.price * item.quantity, 0);
-      
-    };
+  const getTotal = () => {
+    return items.reduce((total, item) => total + item.price * item.quantity, 0);
+  };
+  const getTotalItem = (id) => {
+    const item = items.find((item) => item.id === id);
+    return item ? item.quantity : 0;
+  };
 
+  const getTotalItems = () => {
+    return items.reduce((total, item) => total + item.quantity, 0);
+  };
 
-    const getTotalItems = () => {
-      return items.reduce((total, item) => total + item.quantity, 0);
-    };
+  const clearCart = () => {
+    setItems([]);
+  };
 
-    const clearCart = () => {
-      setItems([]);
-    };
-
-    return (
-      <CartContext.Provider value={{
+  return (
+    <CartContext.Provider
+      value={{
         items,
         isOpen,
         setIsOpen,
@@ -61,18 +62,19 @@
         updateQuantity,
         getTotal,
         getTotalItems,
-        clearCart
-      }}>
-        {children}
-      </CartContext.Provider>
-    );
-  }
+        getTotalItem,
+        clearCart,
+      }}
+    >
+      {children}
+    </CartContext.Provider>
+  );
+}
 
-  export function useCart() {
-    const context = useContext(CartContext);
-    if (!context) {
-      throw new Error('useCart must be used within a CartProvider');
-    }
-    return context;
+export function useCart() {
+  const context = useContext(CartContext);
+  if (!context) {
+    throw new Error("useCart must be used within a CartProvider");
   }
-
+  return context;
+}

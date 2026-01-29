@@ -1,43 +1,20 @@
-import { useCallback, useState } from "react";
-import React, { memo } from "react";
-import { useCart } from "../app/shopping-cart/components/CartContext.jsx";
+import { useState } from "react";
+import PropTypes from "prop-types";
 
 function ProductQuantityButton({
-  product,
-  quantity: propQuantity,
   onQuantityChange,
   size = "default",
   sizeBtn = "default",
   sizeInput = "default",
 }) {
-  const [localQuantity, setLocalQuantity] = useState(propQuantity);
-  const { updateQuantity } = useCart();
+  const [localQuantity, setLocalQuantity] = useState(1);
 
-  const handleQuantityChange = useCallback(
-    (newQuantity) => {
-      const parsedQuantity = parseInt(newQuantity);
-      if (isNaN(parsedQuantity) || parsedQuantity < 1) {
-        return;
-      }
-
-      const validQuantity = Math.min(parsedQuantity, 99);
-
-      // Atualiza estado local
-      setLocalQuantity(validQuantity);
-
-      // Atualiza no carrinho
-      updateQuantity(product.id, validQuantity);
-
-      // Notifica componente pai
-      onQuantityChange?.(validQuantity);
-    },
-    [product.id, updateQuantity, onQuantityChange],
-  );
-
-  // Sincroniza estado local quando propQuantity mudar externamente
-  React.useEffect(() => {
-    setLocalQuantity(propQuantity || 1);
-  }, [propQuantity, product.id]);
+  const handleQuantityChange = (newQuantity) => {
+    // Validação para garantir que o valor seja um número entre 1 e 99
+    const quantity = Math.max(1, Math.min(99, parseInt(newQuantity) || 1));
+    setLocalQuantity(quantity);
+    onQuantityChange(quantity); // Notifica o componente pai sobre a mudança
+  };
 
   const sizeClasses = {
     small: "w-24 h-8",
@@ -83,13 +60,7 @@ function ProductQuantityButton({
         type="text"
         inputMode="numeric"
         value={localQuantity}
-        onChange={(e) => {
-          const value = e.target.value.replace(/\D/g, "");
-          const numValue = parseInt(value) || 1;
-          if (numValue >= 1 && numValue <= 99) {
-            handleQuantityChange(numValue);
-          }
-        }}
+        onChange={(e) => handleQuantityChange(e.target.value)}
         className={`text-center py-2 border-x-1 border-gray-400 
              focus:outline-none [-moz-appearance:textfield] ${inputSizeClasses[sizeInput]}`}
       />
@@ -117,4 +88,16 @@ function ProductQuantityButton({
   );
 }
 
-export default memo(ProductQuantityButton);
+ProductQuantityButton.propTypes = {
+  size: PropTypes.oneOf(["small", "default", "large"]),
+  sizeBtn: PropTypes.oneOf(["small", "default", "large"]),
+  sizeInput: PropTypes.oneOf(["small", "default", "large"]),
+};
+
+ProductQuantityButton.defaultProps = {
+  size: "default",
+  sizeBtn: "default",
+  sizeInput: "default",
+};
+
+export default ProductQuantityButton;

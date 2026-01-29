@@ -5,8 +5,11 @@ import { MoneyFormatter } from "../../utils/MoneyFormatter.jsx";
 import ProductModal from "../../app/shopping-cart/ProductModal.jsx";
 
 function ProductCard({ item }) {
-  const { addItem } = useCart();
+  const { addItem, getTotalItem } = useCart();
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const total = getTotalItem(item.id);
+  console.log(total);
 
   const handleAddToCart = (item, quantity) => {
     addItem({ ...item, quantity });
