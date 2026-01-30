@@ -47,6 +47,9 @@ export function CartProvider({ children }) {
     return items.reduce((total, item) => total + item.quantity, 0);
   };
 
+
+[1, 1, 1, 1, 1 ,1 ,1,1].reduce((numero) => numero - numero) // resultado = 8
+
   const clearCart = () => {
     setItems([]);
   };

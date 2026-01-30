@@ -1,19 +1,19 @@
 import { useState } from "react";
-import PropTypes from "prop-types";
+
 
 function ProductQuantityButton({
+  quantity = 1,
   onQuantityChange,
   size = "default",
   sizeBtn = "default",
   sizeInput = "default",
 }) {
-  const [localQuantity, setLocalQuantity] = useState(1);
+  //Removido pois componente dinamico em props não pode ter contexto individual - O pai deve controlar
+  // const [quantity, setquantity] = useState(1);
 
   const handleQuantityChange = (newQuantity) => {
-    // Validação para garantir que o valor seja um número entre 1 e 99
-    const quantity = Math.max(1, Math.min(99, parseInt(newQuantity) || 1));
-    setLocalQuantity(quantity);
-    onQuantityChange(quantity); // Notifica o componente pai sobre a mudança
+    const quantity = Math.max(1, Math.min(99, parseInt(newQuantity) || 1)); //evita o usuário de comprar mais de 99 hamburger ?? ta chamando ele de pobre?
+    onQuantityChange(quantity); //emite sinal para o componente pai (onde for chamado)
   };
 
   const sizeClasses = {
@@ -39,10 +39,10 @@ function ProductQuantityButton({
       className={`flex text-black w-1/2 border-1 border-gray-400 rounded-2xl overflow-hidden max-h-12 ${sizeClasses[size]}`}
     >
       <button
-        onClick={() => handleQuantityChange(localQuantity - 1)}
+        onClick={() => handleQuantityChange(quantity - 1)}
         type="button"
         className={`flex-1 bg-gray-100 hover:bg-white font-bold flex justify-center items-center ${buttonSizeClasses[sizeBtn]}`}
-        disabled={localQuantity <= 1}
+        disabled={quantity <= 1}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -59,13 +59,13 @@ function ProductQuantityButton({
         min="1"
         type="text"
         inputMode="numeric"
-        value={localQuantity}
+        value={quantity}
         onChange={(e) => handleQuantityChange(e.target.value)}
         className={`text-center py-2 border-x-1 border-gray-400 
              focus:outline-none [-moz-appearance:textfield] ${inputSizeClasses[sizeInput]}`}
       />
       <button
-        onClick={() => handleQuantityChange(localQuantity + 1)}
+        onClick={() => handleQuantityChange(quantity + 1)}
         type="button"
         className={`flex-1 font-bold bg-gray-100 hover:bg-white flex justify-center items-center ${buttonSizeClasses[sizeBtn]}`}
       >
@@ -87,17 +87,5 @@ function ProductQuantityButton({
     </div>
   );
 }
-
-ProductQuantityButton.propTypes = {
-  size: PropTypes.oneOf(["small", "default", "large"]),
-  sizeBtn: PropTypes.oneOf(["small", "default", "large"]),
-  sizeInput: PropTypes.oneOf(["small", "default", "large"]),
-};
-
-ProductQuantityButton.defaultProps = {
-  size: "default",
-  sizeBtn: "default",
-  sizeInput: "default",
-};
 
 export default ProductQuantityButton;
