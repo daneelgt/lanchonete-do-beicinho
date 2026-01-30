@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-
 function ProductQuantityButton({
   quantity = 1,
   onQuantityChange,
@@ -12,7 +11,7 @@ function ProductQuantityButton({
   // const [quantity, setquantity] = useState(1);
 
   const handleQuantityChange = (newQuantity) => {
-    const quantity = Math.max(1, Math.min(99, parseInt(newQuantity) || 1)); //evita o usuário de comprar mais de 99 hamburger ?? ta chamando ele de pobre?
+    const quantity = Math.max(1, Math.min(99, parseInt(newQuantity) || 1)); //evita o usuário de comprar mais de 99 hamburger ?? ta chamando ele de pobre? sim
     onQuantityChange(quantity); //emite sinal para o componente pai (onde for chamado)
   };
 

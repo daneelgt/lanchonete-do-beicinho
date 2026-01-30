@@ -57,6 +57,7 @@ export default function ProductModal({ isOpen, onClose, onConfirm, product }) {
           </div>
 
           <ProductQuantityButton
+            quantity={selectedQuantity}
             key={`product-${product.id}`}
             size="small"
             sizeBtn="small"
