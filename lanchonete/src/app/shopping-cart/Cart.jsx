@@ -3,7 +3,7 @@ import ProductQuantityButton from "../../utils/QuantityButton.jsx";
 import { MoneyFormatter } from "../../utils/MoneyFormatter.jsx";
 import React, { Component, useState } from "react";
 export default function ModalCart({ isOpen, onClose }) {
-  const { items, removeItem, getTotal } = useCart();
+  const { items, removeItem, getTotal, updateQuantity } = useCart();
 
   if (!isOpen) return null;
 
