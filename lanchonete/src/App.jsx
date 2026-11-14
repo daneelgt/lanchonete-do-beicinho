@@ -1,22 +1,22 @@
-import './App.css';
-import 'bootswatch/dist/quartz/bootstrap.min.css';
-import Header from './components/Header.jsx';
-import Cards from './components/Cards.jsx';
-import { CartProvider } from './context/CartContext.jsx';
-import Cart from './components/Cart.jsx';
-import Modal from './components/Modal.jsx';
+import "./App.css";
+import "bootswatch/dist/litera/bootstrap.css";
+import Header from "./components/common/Header.jsx";
+import Cards from "./components/common/Cards.jsx";
+import { CartProvider } from "./app/shopping-cart/components/CartContext.jsx";
+import Cart from "./app/shopping-cart/Cart.jsx";
+import Footer from "./components/common/Footer.jsx";
 
 function App() {
   return (
-    <CartProvider> 
+    <CartProvider>
       <div>
-          <Header/>
-          <Cards/>
-          <Cart/>
-          <Modal/>
+        <Header />
+        <Cards />
+        <Cart />
       </div>
+      <Footer />
     </CartProvider>
-  )
+  );
 }
 
 export default App;
@@ -33,7 +33,7 @@ export default App;
 //       <Cards/>
 //     </div>
 //   )
-  
+
 // }
 
 // export default App
